@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import BackgroundImage from './components/BackgroundImage';
+import Forecast from './components/Forecast';
 import LocalWeather from './components/LocalWeather';
+import OtherCities from './components/OtherCities';
 
 
 const Wrapper = styled(BackgroundImage)`  //基于background image
@@ -40,9 +42,9 @@ const App = () => (
     <Container>
       <LocalWeather/>
       <Layout>
-        <div>OtherCities</div>
+        <OtherCities/>
         <VerticalDivider/>
-        <div>Forecast</div>
+        <Forecast/>
       </Layout>
     </Container>
   </Wrapper>
