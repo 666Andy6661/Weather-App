@@ -1,6 +1,7 @@
 import Temperature from "../../../Temperature/Temperature"
 import styled from 'styled-components'
 import WeatherItem from './components/WeatherItem'
+import { useState } from "react"
 
 //render weather, layout of temperature, main weather, humidity and wind
 
@@ -31,18 +32,23 @@ const WindAndHumidity=styled.div`
     margin-top: 3rem;
     justify-content: space-between;  //use flex-basis to assign the space between
 `
-const Weather = () =>(
-
+const Weather = ({
+    temperature,
+    mainWeather,
+    humidity,
+    wind,
+}) =>(
+    
     <Wrapper>
-        <StyledTemperature value="11.84"/>  
+        <StyledTemperature value={temperature} />
         {/* 把classname一起传进去，这样会应用样式 */}
-        <MainWeather>Rain</MainWeather>
+        <MainWeather>{mainWeather}</MainWeather>
         <WindAndHumidity>
-            <WeatherItem title="HUMIDITY">83%</WeatherItem>
-            <VerticalDivider/>
-            <WeatherItem title="WIND">11.83 K/M</WeatherItem>
+            <WeatherItem title="HUMIDITY">{`${humidity}%`}</WeatherItem>
+            <VerticalDivider />
+            <WeatherItem title="WIND">{`${wind} K/M`}</WeatherItem>
         </WindAndHumidity>
     </Wrapper>
+    
 )
-
 export default Weather
