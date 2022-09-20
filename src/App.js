@@ -20,7 +20,7 @@ const Wrapper = styled(BackgroundImage)`  //基于background image
 const Container = styled.div`
   overflow: auto;
   background-color: white;
-  width: 800px;
+  
   margin: 60x;
   background: #fff;
   border-radius: 32px;
