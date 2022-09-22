@@ -12,7 +12,9 @@ const Layout = styled.div`
 `
 const DAYS = ['SUN','MON','TUE','WED','THU','FRI','SAT']
 
-const Forecast=()=>{
+const Forecast=({
+    cityId,
+})=>{
     // const [forecast, setForecast] = useState([
     //     {id:'MON',day:"Mon", temperature:"21", weather:{icon:'04d', description: 'Clouds'}},
     //     {id:'TUE',day:"TUE", temperature:"24", weather:{icon:'01n', description: 'Rain'}},
@@ -24,11 +26,12 @@ const Forecast=()=>{
     const [loading, setLoading] = useState(true)
 
     useEffect(() =>{
-        getDailyForecast('2158177').then((res)=> {
+        getDailyForecast(cityId).then((res)=> {
             setData(res.data)
             setLoading(false)
         })
-    },[])
+    },[cityId])
+    
     if(loading){
         return <div>Loading...</div>
     }

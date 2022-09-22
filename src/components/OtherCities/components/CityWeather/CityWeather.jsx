@@ -1,11 +1,25 @@
 import styled from 'styled-components'
 import Temperature from '../../../Temperature'
 import WeatherIcon from '../../../WeatherIcon'
-const Wrapper = styled.div`
+const Button = styled.button`
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    font-size: 1rem;
+    text-align: left;
+    background-color: transparent;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    & ~ &{
+    /* & ~ &{
         margin-top: 0.5rem;
+    } */
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    &:hover{
+        /* background: rgba(0,0,0,0.1) */
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 `
 const CityName = styled.div`
@@ -25,10 +39,10 @@ const CityWeather = ({
     temperature,
     weather,
 }) =>(
-    <Wrapper>
+    <Button onClick={()=>console.log('haha')}>
         <CityName>{name}</CityName>
         <StyledTemperature value={temperature}/>
         <StyledWeatherIcon iconValue={weather.icon} description={weather.description}/>
-    </Wrapper>
+    </Button>
 )
 export default CityWeather

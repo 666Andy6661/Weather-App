@@ -16,7 +16,9 @@ const Layout = styled.div`
 
 
 //render local weather, layout and city name
-const LocalWeather =() =>{
+const LocalWeather =({
+    cityId,
+}) =>{
     const[cityName, setCityName] = useState()
     const [temperature, setTemperature] = useState()
     const [mainWeather, setMainWeather] = useState()
@@ -24,7 +26,7 @@ const LocalWeather =() =>{
     const [wind, setWind] = useState()
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        getWeather('2158177').then(({data}) => {
+        getWeather(cityId).then(({data}) => {
             setCityName(data.name)
             setTemperature(data.main.temp)
             setMainWeather(data.weather[0].main)
@@ -33,7 +35,7 @@ const LocalWeather =() =>{
             setLoading(false)
 
         })
-    }, [])
+    }, [cityId])
 
     if(loading){
         return <div>Loading...</div>

@@ -4,17 +4,20 @@ import { useEffect, useState } from "react"
 import getWeathers from "../../apis/getWeathers"
 
 //if want to get data from api, 
-const OtherCities = () =>{
+const OtherCities = ({
+    currentCityId,
+}) =>{
 
     const [data, setData] = useState()
     const [loading, setLoading] = useState(true)
 
     useEffect(() =>{
-        getWeathers([2158177,2147714,2174003,2063523]).then((res) =>{
+        const otherCitiesId = ['2158177','2147714','2174003','2063523'].filter((id)=>id!==currentCityId)
+        getWeathers(otherCitiesId).then((res) =>{
             setData(res.data)
             setLoading(false)
         })
-    },[])
+    },[currentCityId])
 
     if(loading) {
         return (<div>Loading...</div>)

@@ -3,6 +3,7 @@ import BackgroundImage from './components/BackgroundImage';
 import Forecast from './components/Forecast';
 import LocalWeather from './components/LocalWeather';
 import OtherCities from './components/OtherCities';
+import { useState } from 'react';
 
 
 const Wrapper = styled(BackgroundImage)`  //基于background image
@@ -37,18 +38,21 @@ const VerticalDivider = styled.div`
   background-color: rgba(0,0,0,0.1);
 `
 
-const App = () => (
+const App = () => {
+  const [cityId, setCityId] = useState('2158177')
+
+  return(
   <Wrapper src="https://wallpaperaccess.com/full/2629319.png">
     <Container>
-      <LocalWeather/>
+      <LocalWeather cityId={cityId}/>
       <Layout>
-        <OtherCities/>
+        <OtherCities cityId={cityId}/>
         <VerticalDivider/>
-        <Forecast/>
+        <Forecast cityId={cityId}/>
       </Layout>
     </Container>
   </Wrapper>
-)
-
+  )
+}
 
 export default App;
