@@ -5,6 +5,7 @@ import getWeathers from "../../apis/getWeathers"
 
 //if want to get data from api, 
 const OtherCities = ({
+    setCityId,
     currentCityId,
 }) =>{
 
@@ -12,7 +13,7 @@ const OtherCities = ({
     const [loading, setLoading] = useState(true)
 
     useEffect(() =>{
-        const otherCitiesId = ['2158177','2147714','2174003','2063523'].filter((id)=>id!==currentCityId)
+        const otherCitiesId = [2158177,2147714,2174003,2063523].filter((id)=>id!==currentCityId)
         getWeathers(otherCitiesId).then((res) =>{
             setData(res.data)
             setLoading(false)
@@ -32,7 +33,7 @@ const OtherCities = ({
     return(
         <Section title="Other cities">
             {data.list.map(({id, name, main:{temp}, weather:[weather]})=>(
-                <CityWeather key={id} name={name} temperature={temp} weather={weather}/>
+                <CityWeather key={id} id={id}  setCityId={setCityId} name={name} temperature={temp} weather={weather}/>
             ))}
         </Section>
     )

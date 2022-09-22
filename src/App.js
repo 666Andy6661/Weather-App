@@ -46,7 +46,7 @@ const App = () => {
     <Container>
       <LocalWeather cityId={cityId}/>
       <Layout>
-        <OtherCities cityId={cityId}/>
+        <OtherCities  currentCityId={cityId} setCityId={setCityId}/>
         <VerticalDivider/>
         <Forecast cityId={cityId}/>
       </Layout>

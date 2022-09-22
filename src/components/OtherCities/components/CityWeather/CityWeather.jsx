@@ -35,11 +35,13 @@ const StyledTemperature = styled(Temperature)`
     
 `
 const CityWeather = ({
+    id,
+    setCityId,
     name,
     temperature,
     weather,
 }) =>(
-    <Button onClick={()=>console.log('haha')}>
+    <Button onClick={()=>setCityId(id)}>
         <CityName>{name}</CityName>
         <StyledTemperature value={temperature}/>
         <StyledWeatherIcon iconValue={weather.icon} description={weather.description}/>
